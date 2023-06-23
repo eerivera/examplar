@@ -79,7 +79,7 @@
     "test-watch": "karma start",
     "lint": "eslint src",
     "build": "heroku local:run make web-local",
-    "heroku-postbuild": "bash src/scripts/fetch-anchor.sh",
+    "heroku-postbuild": "heroku local:run make deploy-cpo-main; bash src/scripts/fetch-anchor.sh",
     "mocha": "heroku local:run mocha",
     "start": "heroku local:run supervisor --poll-interval 700 --watch src/run.js,src/server.js src/run.js"
   },
