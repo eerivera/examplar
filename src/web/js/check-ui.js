@@ -33,7 +33,7 @@
       const endLine = name[2].line;
       const endChar = name[2].ch;
 
-      const fileLines = l.doc.children[0].lines;
+      const fileLines = l.doc.children.map(c => c.lines).reduce((acc, val) => acc.concat(val), []);
       
       if (startLine == endLine) {
         return fileLines[startLine].text.substring(startChar, endChar);
